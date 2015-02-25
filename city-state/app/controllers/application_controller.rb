@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_player
+  before_action :authenticate!, except: [:new]
 
   def current_player
     if session[:current_player_id]
@@ -15,4 +16,5 @@ class ApplicationController < ActionController::Base
   def authenticate!
     redirect_to '/sessions/login' unless current_player
   end
+
 end

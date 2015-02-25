@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
   def delete
     session[:current_player_id] = nil
+    redirect_to login_path
   end
 
 end

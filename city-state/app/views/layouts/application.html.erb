@@ -7,7 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= current_player.name if current_player %>
+
+	<% if current_player %>
+  <%= current_player.name %> 
+  <%= link_to "logout", sessions_logout_path %>
+   <% end %>
 
 <%= yield %>
 

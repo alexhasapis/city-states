@@ -15,5 +15,43 @@
   <%= @player.email %>
 </p>
 
+<% if current_player && @player.id == current_player.id %>
+  <% if current_player.countries %>
+    <!-- show the country -->
+    <h2> Your country </h2>
+      <% current_player.countries.each do |country| %>
+        <ul>
+          <li> Name: <%= country.name %> </li>
+          <li> Flag: <img src="/assets/flags/<%=country.flag%>"></img> </li>
+          <li> Motto: <%= country.motto %> </li>
+          <li> Population: <%= country.population %> </li>
+          <li> Employment: <%= country.employment %> </li>
+          <li> Tax rate: <%= country.tax_rate %> </li>
+          <li> Wealth: <%= country.wealth %> </li>
+        </ul>  
+      <% end %>
+
+  <% else %>
+    <!-- create country form -->
+    <%= render 'countries/form' %>
+  <% end %>
+<% else %>
+    <% if @player.countries %>
+        <!-- show the country -->
+        <h2> <%= @player.title %> <%= @player.name %>'s country </h2>
+        <% @player.countries.each do |country| %>
+        <ul>
+          <li> Name: <%= country.name %> </li>
+          <li> Flag: <%= image_tag 'flags/' + country.flag %> </li>
+          <li> Motto: <%= country.motto %> </li>
+          <li> Population: <%= country.population %> </li>
+          <li> Employment: <%= country.employment %> </li>
+          <li> Tax rate: <%= country.tax_rate %> </li>
+          <li> Wealth: <%= country.wealth %> </li>
+        </ul>  
+      <% end %>
+    <% end %>    
+<% end %>    
+
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

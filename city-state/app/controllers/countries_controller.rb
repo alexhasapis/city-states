@@ -24,7 +24,7 @@ class CountriesController < ApplicationController
   # POST /countries
   # POST /countries.json
   def create
-    @country = Country.new(country_params)
+    @country = current_player.countries.new(country_params)
 
     respond_to do |format|
       if @country.save

@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :flag %><br>
-    <%= f.text_field :flag %>
+    <%= f.select :flag, Dir[Rails.root.join("app/assets/images/flags/*.png")].map { |flag| [File.basename(flag, ".png").titleize, File.basename(flag)]}%>
   </div>
   <div class="field">
     <%= f.label :motto %><br>

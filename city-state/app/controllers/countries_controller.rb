@@ -71,4 +71,5 @@ class CountriesController < ApplicationController
     def country_params
       params.require(:country).permit(:name, :references, :flag, :motto, :population, :employment, :tax_rate, :wealth)
     end
+
 end

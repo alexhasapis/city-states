@@ -16,17 +16,17 @@
 </p>
 
 <% if current_player && @player.id == current_player.id %>
-  <% if current_player.countries %>
+  <% if current_player.country %>
     <!-- show the country -->
     <h2> Your country </h2>
       <ul>
         <li> Name: <%= current_player.name %> </li>
-        <li> Flag: <img src="/assets/flags/<%=current_player.flag%>"></img> </li>
-        <li> Motto: <%= current_player.motto %> </li>
-        <li> Population: <%= current_player.population %> </li>
-        <li> Employment: <%= current_player.employment %> </li>
-        <li> Tax rate: <%= current_player.tax_rate %> </li>
-        <li> Wealth: <%= current_player.wealth %> </li>
+        <li> Flag: <img src="/assets/flags/<%=current_player.country.flag %>"></img> </li>
+        <li> Motto: <%= current_player.country.motto %> </li>
+        <li> Population: <%= current_player.country.population %> </li>
+        <li> Employment: <%= current_player.country.employment %> </li>
+        <li> Tax rate: <%= current_player.country.tax_rate %> </li>
+        <li> Wealth: <%= current_player.country.wealth %> </li>
       </ul>  
 
   <% else %>

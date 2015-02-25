@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= current_player.name if current_player %>
 
 <%= yield %>
 

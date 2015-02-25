@@ -2,7 +2,9 @@ class CreateCountries < ActiveRecord::Migration
   def change
     create_table :countries do |t|
       t.string :name
-      t.player :references
+      # t.player :references
+      # we changed this ^^
+      t.references :player
       t.string :flag
       t.string :motto
       t.integer :population

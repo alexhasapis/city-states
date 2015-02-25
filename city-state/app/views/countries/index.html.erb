@@ -21,8 +21,8 @@
     <% @countries.each do |country| %>
       <tr>
         <td><%= country.name %></td>
-        <td><%= country.references %></td>
-        <td><%= country.flag %></td>
+        <td><%= country.player.name %></td>
+        <td><img src="/assets/flags/<%=country.flag%>"></img></td>
         <td><%= country.motto %></td>
         <td><%= country.population %></td>
         <td><%= country.employment %></td>

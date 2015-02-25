@@ -19,37 +19,33 @@
   <% if current_player.countries %>
     <!-- show the country -->
     <h2> Your country </h2>
-      <% current_player.countries.each do |country| %>
-        <ul>
-          <li> Name: <%= country.name %> </li>
-          <li> Flag: <img src="/assets/flags/<%=country.flag%>"></img> </li>
-          <li> Motto: <%= country.motto %> </li>
-          <li> Population: <%= country.population %> </li>
-          <li> Employment: <%= country.employment %> </li>
-          <li> Tax rate: <%= country.tax_rate %> </li>
-          <li> Wealth: <%= country.wealth %> </li>
-        </ul>  
-      <% end %>
+      <ul>
+        <li> Name: <%= current_player.name %> </li>
+        <li> Flag: <img src="/assets/flags/<%=current_player.flag%>"></img> </li>
+        <li> Motto: <%= current_player.motto %> </li>
+        <li> Population: <%= current_player.population %> </li>
+        <li> Employment: <%= current_player.employment %> </li>
+        <li> Tax rate: <%= current_player.tax_rate %> </li>
+        <li> Wealth: <%= current_player.wealth %> </li>
+      </ul>  
 
   <% else %>
     <!-- create country form -->
     <%= render 'countries/form' %>
   <% end %>
 <% else %>
-    <% if @player.countries %>
+    <% if @player.country %>
         <!-- show the country -->
-        <h2> <%= @player.title %> <%= @player.name %>'s country </h2>
-        <% @player.countries.each do |country| %>
-        <ul>
-          <li> Name: <%= country.name %> </li>
-          <li> Flag: <%= image_tag 'flags/' + country.flag %> </li>
-          <li> Motto: <%= country.motto %> </li>
-          <li> Population: <%= country.population %> </li>
-          <li> Employment: <%= country.employment %> </li>
-          <li> Tax rate: <%= country.tax_rate %> </li>
-          <li> Wealth: <%= country.wealth %> </li>
-        </ul>  
-      <% end %>
+      <h2> <%= @player.title %> <%= @player.name %>'s country </h2>
+      <ul>
+        <li> Name: <%= @player.country.name %> </li>
+        <li> Flag: <%= image_tag 'flags/' + @player.country.flag %> </li>
+        <li> Motto: <%= @player.country.motto %> </li>
+        <li> Population: <%= @player.country.population %> </li>
+        <li> Employment: <%= @player.country.employment %> </li>
+        <li> Tax rate: <%= @player.country.tax_rate %> </li>
+        <li> Wealth: <%= @player.country.wealth %> </li>
+      </ul>  
     <% end %>    
 <% end %>    
 

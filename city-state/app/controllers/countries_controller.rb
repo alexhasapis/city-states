@@ -40,6 +40,7 @@ class CountriesController < ApplicationController
   # PATCH/PUT /countries/1
   # PATCH/PUT /countries/1.json
   def update
+
     respond_to do |format|
       if @country.update(country_params)
         format.html { redirect_to @country, notice: 'Country was successfully updated.' }

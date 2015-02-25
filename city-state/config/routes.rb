@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :players
 
-  get '/session/login' => 'sessions#new', as: "login"
+  get '/sessions/login' => 'sessions#new', as: "login"
+  post '/sessions' => 'sessions#create'
+  get '/sessions/logout' => 'sessions#delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

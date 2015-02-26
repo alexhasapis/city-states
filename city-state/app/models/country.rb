@@ -18,6 +18,9 @@ class Country < ActiveRecord::Base
 		self.population = pop
 	end
 
+# set_player_id isn't working
+# models don't know about controller helpers
+# people on stack overflow say it is not desirable to call controller helpers in the model ...
 	def set_player_id
 		self.player_id = current_player.id
 	end

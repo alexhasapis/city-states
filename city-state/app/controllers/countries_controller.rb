@@ -26,7 +26,6 @@ class CountriesController < ApplicationController
   def create
     # Alas, this doesn't work. I've replaced it with the longer approach.
     # @country = current_player.country.new(country_params)
-    Pry.start(binding)
     @country = Country.new(country_params)
     @country.player_id = current_player.id
 

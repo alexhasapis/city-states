@@ -24,7 +24,11 @@ class CountriesController < ApplicationController
   # POST /countries
   # POST /countries.json
   def create
-    @country = current_player.countries.new(country_params)
+    # Alas, this doesn't work. I've replaced it with the longer approach.
+    # @country = current_player.country.new(country_params)
+    Pry.start(binding)
+    @country = Country.new(country_params)
+    @country.player_id = current_player.id
 
     respond_to do |format|
       if @country.save

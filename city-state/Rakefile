@@ -1,6 +1,31 @@
+
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+namespace :country do
+	desc "increasing it by the combined resources growth_factor times employment"
+	task :work => :environment do
+		Pry.start(binding)
+		countries = Country.all.each do |c|
+			resources = c.resources
+			growth_factor_product = 1
+			resources.each do |r|
+				growth_factor_product *= r.growth_factor
+			end
+			c.population += c.population * c.employment * growth_factor_product
+			c.update(population: c.population)
+		end
+	end
+
+	desc "descrease population"
+	task :plague => :environment do
+		countries = Country.all.each do |c|
+			c.population *= rand(95..100)/100.0
+			c.update(population: c.population)
+		end
+	end
+end

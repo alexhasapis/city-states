@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :trade_deals
+
   resources :resources
 
   resources :countries

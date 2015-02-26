@@ -15,8 +15,6 @@ csv.map do |row|
   Resource.create({name: row[:name], growth_factor: row[:growth_factor], exchange_rate: row[:exchange_rate]})
 end
 
-Pry.start(binding)
-
 Player.delete_all
 Country.delete_all
 

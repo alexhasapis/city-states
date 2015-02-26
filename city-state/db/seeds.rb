@@ -1,3 +1,4 @@
+require 'csv'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -7,10 +8,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # clear out previous junk data
-Pry.start(binding)
-Player.delete_all
 
+csv = CSV.open("db/resources.csv", "r", headers: true, header_converters: :symbol)
+
+csv.map do |row| 
+  Resource.create({name: row[:name], growth_factor: row[:growth_factor], exchange_rate: row[:exchange_rate]})
+end
+
+Pry.start(binding)
+
+Player.delete_all
 Country.delete_all
+
 
 # create new fake players
 mike = Player.create(

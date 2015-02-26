@@ -10,7 +10,6 @@ Rails.application.load_tasks
 namespace :country do
 	desc "increasing it by the combined resources growth_factor times employment"
 	task :work => :environment do
-		Pry.start(binding)
 		countries = Country.all.each do |c|
 			resources = c.resources
 			growth_factor_product = 1

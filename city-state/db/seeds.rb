@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # clear out previous junk data
+Pry.start(binding)
 Player.delete_all
 
 Country.delete_all

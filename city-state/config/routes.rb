@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :resources
+
   resources :countries
 
   resources :players
+
 
   get '/sessions/login' => 'sessions#new', as: "login"
   post '/sessions' => 'sessions#create'

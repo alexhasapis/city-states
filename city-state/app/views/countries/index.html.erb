@@ -22,7 +22,7 @@
       <tr>
         <td><%= country.name %></td>
         <td><%= country.player.name %></td>
-        <td><img src="/assets/flags/<%=country.flag%>"></img></td>
+        <td><%= image_tag "flags/" + country.flag %></td>
         <td><%= country.motto %></td>
         <td><%= country.population %></td>
         <td><%= country.employment %></td>

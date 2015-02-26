@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226003857) do
+ActiveRecord::Schema.define(version: 20150226193624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,21 @@ ActiveRecord::Schema.define(version: 20150226003857) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "trade_deals", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "countryresource_id"
+    t.integer  "cost"
+    t.float    "quantity"
+    t.boolean  "agreed"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "trade_deals", ["countryresource_id"], name: "index_trade_deals_on_countryresource_id", using: :btree
+  add_index "trade_deals", ["player_id"], name: "index_trade_deals_on_player_id", using: :btree
+
   add_foreign_key "countryresources", "countries"
   add_foreign_key "countryresources", "resources"
+  add_foreign_key "trade_deals", "countryresources"
+  add_foreign_key "trade_deals", "players"
 end

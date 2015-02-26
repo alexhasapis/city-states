@@ -7,14 +7,6 @@ require File.expand_path('../app/models/*.rb', __FILE__)
 
 Rails.application.load_tasks
 
-<<<<<<< HEAD
-namespace :country do 
- desc "effect population wealth"
- task  :work do
-  Pry.start(binding)
- end
-end
-=======
 namespace :country do
 	desc "increasing it by the combined resources growth_factor times employment"
 	task :work => :environment do
@@ -46,4 +38,4 @@ namespace :country do
 	   end
 	 end
 end
->>>>>>> 87386d3fc1550785ee4a70d9700345bb986bddfd
+
